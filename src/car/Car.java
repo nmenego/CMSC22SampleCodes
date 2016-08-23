@@ -3,51 +3,58 @@ package car;
 /**
  * Created by nmenego on 8/18/16.
  */
-class Car {
+public class Car {
 
     private float speed = 0;
     private boolean isReverse = false;
     private boolean isStarted = false;
 
     public void start() {
-        if (isStarted) {
-            // the car is already started
-        } else {
-            isStarted = true;
-        }
+      if(isStarted) {
+        // ...
+      } else {
+        isStarted = true;
+        System.err.println("vroom vrooomm");
+      }
     }
 
     public void accelerate() {
-        if (isStarted) {
-            speed += 10;
-        } else {
-            // car is not started yet
-        }
+      if(isStarted) {
+        speed += 10;
+        System.out.println("vroooom");
+      } else {
+        System.err.println("hoy i-start!!!");
+      }
     }
 
-    public void doBreak() {
-        if (isStarted) {
-            speed -= 10;
-        } else {
-            // car is not started yet
+    public void doBrake() {
+      if(isStarted) {
+        speed -= 10;
+        if(speed <= 0) {
+          stop();
         }
+        System.out.println("screeeech");
+      } else {
+        System.err.println("hoy i-start!!!");
+      }
     }
 
     public void stop() {
-        if (isStarted) {
-            isStarted = false;
-        } else {
-            // car is already stopped
-        }
+      if(isStarted && speed == 0) {
+        isStarted = false;
+        isReverse = false;
+      } else {
+        System.err.println("disgrasya");
+      }
     }
 
     public void reverse() {
-        if(isStarted) {
-            isReverse = true;
-        } else {
-            // car is not started yet
-        }
+      if(isStarted) {
+        speed += 10;
+        System.out.println("tooot tooot");
+      } else {
+        System.err.println("hoy i-start!!!");
+      }
     }
 
 }
-
