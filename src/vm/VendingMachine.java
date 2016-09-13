@@ -35,6 +35,10 @@ public class VendingMachine {
       this.money += money;
    }
 
+   public void insertMoney(int moneyBills, int moneyCoins) {
+      insertMoney(moneyBills + moneyCoins);
+   }
+
    // return change
    public int selectItem(int choice) {
 
