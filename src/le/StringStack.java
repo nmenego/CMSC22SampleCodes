@@ -35,6 +35,21 @@ public class StringStack {
     }
 
     /**
+     * Call pop n times and return the result of the nth time.
+     */
+    public String pop(int n) {
+        if (n <= 0) {
+            throw new IllegalArgumentException("Must enter positive integer");
+        } else {
+            String result = "";
+            for (int i = 0; i < n; i++) {
+                result = pop();
+            }
+            return result;
+        }
+    }
+
+    /**
      * Inserts an item to the top of the stack.
      */
     public void push(String item) {
@@ -91,6 +106,12 @@ public class StringStack {
         System.out.println(item3); // paper
         System.out.println(stack); // EMPTY
         System.out.println(stack.size()); // 0
+
+        // test new pop
+        stack.push("paper");
+        stack.push("plastic");
+        stack.push("tissue");
+        System.out.println(stack.pop(3)); // paper
     }
 
 }
