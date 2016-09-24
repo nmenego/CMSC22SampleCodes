@@ -5,6 +5,9 @@ package car;
  */
 public class Car {
 
+    public static int carCount, x;
+    public static final String DEFAULT_COLOR = "white";
+
     private float speed = 0;
     private boolean isReverse = false;
     private boolean isStarted = false;
