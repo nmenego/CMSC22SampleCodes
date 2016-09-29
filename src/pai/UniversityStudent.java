@@ -1,14 +1,17 @@
 package pai;
 
 /**
- * Created by nmenego on 9/26/16.
+ * Created by nmenego on 9/29/16.
  */
-public class Student extends Person {
+public class UniversityStudent extends UniversityPerson {
     private int studentId;
 
-    public Student(int age, String name, char sex, int studentId) {
+    public UniversityStudent(int age, String name, char sex, int studentId) {
         super(age, name, sex);
         this.studentId = studentId;
+    }
+
+    public void sleep() {
     }
 
     public void registerForClass() {
@@ -37,7 +40,7 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return super.toString() + "\nStudent{" +
+        return "Student{" +
                 "studentId=" + studentId +
                 '}';
     }
