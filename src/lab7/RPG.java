@@ -9,7 +9,7 @@ import java.util.Random;
  */
 public class RPG {
 
-    private Random rand = new Random();
+    private Random rand;
 
     // constructor
     public RPG() {
@@ -71,7 +71,7 @@ public class RPG {
 
         RPG rpg = new RPG();
         RPGCharacter hero = new Swordsman("nico", 30); // TODO take parameters as input via STDIN
-            RPGCharacter monster = new Monster(rpg.getRandomMonsterName(), rpg.randInt(1, 100), rpg.randInt(1, 100));
+        RPGCharacter monster = new Monster(rpg.getRandomMonsterName(), rpg.randInt(1, 100), rpg.randInt(1, 100));
 
         System.out.println("====== GAME START =====");
         System.out.printf("%s\n%s\n", hero, monster);
@@ -81,12 +81,12 @@ public class RPG {
         while (true) {
             System.out.println("== round " + ++count);
             // hero's turn
-            boolean heroVsMonster = rpg.duel(hero, monster);
-            if (heroVsMonster) break;
+            boolean monsterIsDead = rpg.duel(hero, monster);
+            if (monsterIsDead) break;
 
             // monster's turn
-            boolean monsterVsHero = rpg.duel(monster, hero);
-            if (monsterVsHero) break;
+            boolean heroIsDead = rpg.duel(monster, hero);
+            if (heroIsDead) break;
 
             System.out.printf("%s\n%s\n", hero, monster);
         }
