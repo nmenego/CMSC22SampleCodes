@@ -11,7 +11,8 @@ public class Swordsman extends Hero {
     private static final int ARMOR = 5;
 
     public Swordsman(String name, int level) {
-        super(name, level, level + ARMOR);
+        // a swordsman will have +ARMOR for HP because of ARMOR
+        super(name, level + ARMOR, level);
     }
 
     public int attack() {

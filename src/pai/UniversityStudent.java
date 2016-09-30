@@ -12,6 +12,7 @@ public class UniversityStudent extends UniversityPerson {
     }
 
     public void sleep() {
+        System.out.println("no sleep! lots of work to do!");
     }
 
     public void registerForClass() {

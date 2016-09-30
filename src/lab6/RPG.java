@@ -11,6 +11,7 @@ public class RPG {
 
     private Random rand = new Random();
 
+    // constructor
     public RPG() {
         this.rand = new Random();
     }
@@ -37,9 +38,9 @@ public class RPG {
     }
 
     // pause the game for awhile for dramatic effect!
-    public void sleep(int x) {
+    public void sleep(int ms) {
         try {
-            Thread.sleep(x);
+            Thread.sleep(ms);
         } catch (InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
@@ -70,7 +71,7 @@ public class RPG {
 
         RPG rpg = new RPG();
         RPGCharacter hero = new Swordsman("nico", 30); // TODO take parameters as input via STDIN
-        RPGCharacter monster = new Monster(rpg.getRandomMonsterName(), rpg.randInt(1, 100), rpg.randInt(0, 200));
+            RPGCharacter monster = new Monster(rpg.getRandomMonsterName(), rpg.randInt(1, 100), rpg.randInt(1, 100));
 
         System.out.println("====== GAME START =====");
         System.out.printf("%s\n%s\n", hero, monster);

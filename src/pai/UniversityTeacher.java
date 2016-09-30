@@ -14,6 +14,7 @@ public class UniversityTeacher extends UniversityPerson {
     }
 
     public void sleep() {
+        System.out.println("dreaming about students' tears...");
     }
 
     public void teach() {
