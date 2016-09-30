@@ -1,4 +1,4 @@
-package lab6;
+package lab7;
 
 /**
  * Created by nmenego on 9/29/16.
