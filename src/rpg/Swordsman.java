@@ -25,11 +25,13 @@ public class Swordsman extends RPGCharacter {
         } else {
            damage = weapon.use(getAtkDamage());
             // get self damage
-            Damage selfDmg = new Damage();
-            selfDmg.setDamage(damage.getSelfDamage());
-            selfDmg.setStun(false);
-            selfDmg.setSelfDamage(0);
-            takeDamage(selfDmg);
+            int hp = getHp() - damage.getSelfDamage();
+            setHp(hp);
+//            Damage selfDmg = new Damage();
+//            selfDmg.setDamage(damage.getSelfDamage());
+//            selfDmg.setStun(false);
+//            selfDmg.setSelfDamage(0);
+//            takeDamage(selfDmg);
         }
         return damage;
     }

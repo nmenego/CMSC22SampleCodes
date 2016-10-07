@@ -45,6 +45,7 @@ public class RPG {
         Damage dmg = atkr.attack();
         System.out.println("ATK: " + dmg.getDamage());
         System.out.println("STUN: " + dmg.isStun());
+        System.out.println("KNCKBCK: " + dmg.getSelfDamage());
         dfndr.takeDamage(dmg);
     }
 }

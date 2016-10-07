@@ -19,7 +19,7 @@ public abstract class Weapon {
         dmg.setStun(stun(stunPercentage));
         boolean selfDamage = knockback(selfDamagePercentage);
         if(selfDamage) {
-            dmg.setSelfDamage(heroAtk + baseDamage);
+            dmg.setSelfDamage(baseDamage);
         }
         return dmg;
     }
