@@ -1,4 +1,6 @@
-package rpg;
+package rpg.weapon;
+
+import rpg.Damage;
 
 import java.util.Random;
 
@@ -15,11 +17,11 @@ public abstract class Weapon {
     // derived classes must compute for the damage
     public Damage use(int heroAtk) {
         Damage dmg = new Damage();
-        dmg.setDamage(heroAtk + baseDamage);
+        dmg.setDamagePoints(heroAtk + baseDamage);
         dmg.setStun(stun(stunPercentage));
         boolean selfDamage = knockback(selfDamagePercentage);
         if(selfDamage) {
-            dmg.setSelfDamage(baseDamage);
+            dmg.setSelfDamagePoints(baseDamage);
         }
         return dmg;
     }

@@ -1,4 +1,6 @@
-package rpg;
+package rpg.hero;
+
+import rpg.Damage;
 
 /**
  * Created by nmenego on 9/29/16.
@@ -27,7 +29,7 @@ public abstract class RPGCharacter {
 
     // may be overriden in subclass, damage is dependent on hero type
     public void takeDamage(Damage dmg) {
-        hp -= dmg.getDamage();
+        hp -= dmg.getDamagePoints();
         stun = dmg.isStun();
     }
 

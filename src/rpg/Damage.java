@@ -4,25 +4,16 @@ package rpg;
  * Created by nmenego on 10/6/16.
  */
 public class Damage {
-    private int damage;
+    private int damagePoints;
     private boolean stun;
-    private int selfDamage;
+    private int selfDamagePoints;
 
-
-    public int getSelfDamage() {
-        return selfDamage;
+    public int getDamagePoints() {
+        return damagePoints;
     }
 
-    public void setSelfDamage(int selfDamage) {
-        this.selfDamage = selfDamage;
-    }
-
-    public int getDamage() {
-        return damage;
-    }
-
-    public void setDamage(int damage) {
-        this.damage = damage;
+    public void setDamagePoints(int damagePoints) {
+        this.damagePoints = damagePoints;
     }
 
     public boolean isStun() {
@@ -31,5 +22,13 @@ public class Damage {
 
     public void setStun(boolean stun) {
         this.stun = stun;
+    }
+
+    public int getSelfDamagePoints() {
+        return selfDamagePoints;
+    }
+
+    public void setSelfDamagePoints(int selfDamagePoints) {
+        this.selfDamagePoints = selfDamagePoints;
     }
 }
