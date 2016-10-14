@@ -22,7 +22,7 @@ public class InstanceOfTester {
         System.out.println(a instanceof Weapon);
         System.out.println(b instanceof Weapon);
         System.out.println(c instanceof Weapon);
-
+        System.out.println();
         System.out.println(a instanceof Broadsword);
         System.out.println(b instanceof Broadsword);
         System.out.println(c instanceof Broadsword);

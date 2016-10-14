@@ -21,10 +21,13 @@ public class FileReading {
             br = new BufferedReader(new FileReader("/Users/nmenego/test/testing.txt"));
 
             while ((sCurrentLine = br.readLine()) != null) {
-                System.out.println(sCurrentLine);
-//                System.out.println("UGH!");
+                System.out.println(sCurrentLine + ">>");
+                if (sCurrentLine.equals("Ugh!")) {
+                    System.out.println("UGH!");
+                }
             }
 
+            System.out.println("goodbye 1");
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -32,7 +35,9 @@ public class FileReading {
                 if (br != null) br.close();
             } catch (IOException ex) {
                 ex.printStackTrace();
+                // sad :(
             }
+
         }
 
     }

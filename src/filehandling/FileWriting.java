@@ -15,9 +15,14 @@ public class FileWriting {
                 file.createNewFile();
             }
 
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
             bw.write("The quick brown fox jumps over the lazy dog near the river bank.");
+            bw.newLine();
+            bw.write("some other line.");
+            bw.newLine();
+            bw.write(54321);
+
+            // better use finally here...
             bw.close();
 
             System.out.println("Done");

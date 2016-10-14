@@ -9,20 +9,21 @@ import java.util.List;
 public class ListTest {
 
     public static void main(String[] args) {
-        List<StudentInformation> myList = new ArrayList();
+        List<StudentInformation> myList = new ArrayList<StudentInformation>();
 
         StudentInformation a = new StudentInformation("123", "Hansolo");
         StudentInformation b = new StudentInformation("12313", "Chewbacca");
+        // adding items to our list.
         myList.add(a);
         myList.add(b);
+
+        // getting the size of a list
         System.out.println(myList.size());
 
+        // looping through a list
         for(StudentInformation s: myList) {
             System.out.println(s);
         }
-
-
-
     }
 }
 
