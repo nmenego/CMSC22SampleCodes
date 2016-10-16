@@ -1,5 +1,6 @@
 package list;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,13 +21,19 @@ public class ListTest {
         // getting the size of a list
         System.out.println(myList.size());
 
-        // looping through a list
+        // looping through a liqst
         for(StudentInformation s: myList) {
             System.out.println(s);
         }
+
+
+        List<Integer> listOfIntegers = new ArrayList<Integer>();
+        listOfIntegers.add(5);
+        listOfIntegers.add(new Integer(3));
     }
 }
 
+// Plain old Java object (POJO)
 class StudentInformation {
     private String studentNumber;
     private String name;
