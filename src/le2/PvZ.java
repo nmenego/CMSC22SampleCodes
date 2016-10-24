@@ -37,31 +37,15 @@ public class PvZ {
         this.isAlive = true;
     }
 
-    public boolean isAlive() {
-        return isAlive;
-    }
-
-    // checks whether or not there are still zombies to kill.
-    // NO NEED TO MODIFY THIS METHOD!!!
-    public boolean hasZombies() {
-        for (int i = 0; i < lawn.length; i++) {
-            for (int j = 0; j < lawn[i].length; j++) {
-                if(lawn[i][j] instanceof Zombie) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
     // This method simulates one turn of our game.
-    // NO NEED TO MODIFY THIS METHOD!!!
+    // MODIFY ONLY PARTS WITH TODO
     public void simulateGame() {
         // Collect sunlight from SunProducer plants give off sunlight.
+        // call on getProducerPlants() to get a list of producers
         List<Producer> producers = getProducerPlants();
-        // get sunlight...
-        for (Producer producer : producers) {
-            this.sunlight += producer.produce();
+        // for each of the producers, retrieve the amount of sunlight they produce by calling on produce()
+        for(Producer pl : producers) {
+            sunlight += pl.produce();
         }
 
         // Plants deal damage to first zombie on the same row
@@ -78,6 +62,7 @@ public class PvZ {
         }
 
         // SplashAttacker Plants deal damage to surrounding zombies
+        // uncomment this part here when you have implemented SplashAttacker and Cherrybomb
         for (int i = 0; i < lawn.length; i++) {
             for (int j = 0; j < lawn[i].length; j++) {
                 // if splash attacker is found!
@@ -147,7 +132,8 @@ public class PvZ {
     private Zombie getFirstZombie(int row) {
         for (Character chr : lawn[row]) {
             if (chr instanceof Zombie) {
-                // cast to Zombie
+                // return an instance of Zombie.
+                // hint: cast chr then return.
                 return (Zombie) chr;
             }
         }
@@ -155,7 +141,6 @@ public class PvZ {
     }
 
     // retrieves zombie on given point, null if empty or plant
-    // DO NOT MODIFY!!
     private Zombie getZombie(int row, int col) {
         // check bounds..
         if (row < 0 || row >= lawn.length) {
@@ -167,34 +152,41 @@ public class PvZ {
         }
 
         if (lawn[row][col] instanceof Zombie) {
+            // return an instance of Zombie.
+            // hint: cast lawn[row][col] then return.
             return (Zombie) lawn[row][col];
         }
         return null;
     }
 
-
-    // TODO get all Producer plants on the lawn...
+    // retrieves a list of producer plants
     public List<Producer> getProducerPlants() {
         List<Producer> producers = new ArrayList<Producer>();
         // loop through rows
         for (Character[] col : lawn) {
             // loop through cols
             for (Character chr : col) {
-                if (chr instanceof Producer) {
-                    producers.add((Producer) chr);
+                // get all Producer plants on the lawn...
+                if(chr instanceof Producer) {
+                    Producer prod = (Producer) chr;
+                    producers.add(prod);
                 }
             }
         }
         return producers;
     }
 
-    // TODO get all plants on given row, NOTE must not be Splash attacker
+    // gets all the plants on a specific row
     public List<Plant> getPlantsOnRow(int row) {
         List<Plant> attackers = new ArrayList<Plant>();
-        // loop through cols
+        // loop through cols of the given row
         for (Character chr : lawn[row]) {
-            if (chr instanceof Plant && !(chr instanceof SplashAttacker)) {
-                attackers.add((Plant) chr);
+            // get all plants on given row, NOTE must NOT be Splash attacker
+            if(chr instanceof Plant) {
+                if(!(chr instanceof SplashAttacker)) {
+                    Plant pl = (Plant) chr;
+                    attackers.add(pl);
+                }
             }
         }
         return attackers;
@@ -228,7 +220,6 @@ public class PvZ {
     }
 
     // Displays current state of board.
-    // NO NEED TO MODIFY THIS METHOD!!!
     public void displayLawn() {
         for (int i = 0; i < lawn.length; i++) {
             for (int j = 0; j < lawn[i].length; j++) {
@@ -236,10 +227,10 @@ public class PvZ {
                     System.out.print("_ ");
                 } else if (lawn[i][j] instanceof Zombie) {
                     // gets first character of class name and prints it out...
-                    System.out.print((lawn[i][j].getClass().getSimpleName().toLowerCase().toString().charAt(0) + "") + "(" +lawn[i][j].getHp() + ") ");
+                    System.out.print(lawn[i][j].getClass().getSimpleName().toLowerCase().toString().charAt(0) + " ");
                 } else if (lawn[i][j] instanceof Plant) {
                     // gets first character of class name and prints it out...
-                    System.out.print((lawn[i][j].getClass().getSimpleName().toString().charAt(0) + "") + "(" +lawn[i][j].getHp() + ") ");
+                    System.out.print(lawn[i][j].getClass().getSimpleName().toString().charAt(0) + " ");
                 }
             }
             System.out.println();
@@ -248,4 +239,21 @@ public class PvZ {
         System.out.println();
     }
 
+    // NO NEED TO MODIFY THIS!
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    // checks whether or not there are still zombies to kill.
+    // NO NEED TO MODIFY THIS METHOD!!!
+    public boolean hasZombies() {
+        for (int i = 0; i < lawn.length; i++) {
+            for (int j = 0; j < lawn[i].length; j++) {
+                if (lawn[i][j] instanceof Zombie) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
