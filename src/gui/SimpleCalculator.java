@@ -25,8 +25,24 @@ public class SimpleCalculator extends Frame {
         txtInput = new TextField("0", 20);
         btnSum = new Button("Sum");
 
-        // anonymous class
-        btnSum.addActionListener(new MyActionListener());
+        // 1. provide new class:
+        //btnSum.addActionListener(new MyActionListener());
+        // 2. anonymous class:
+        btnSum.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(temp != 0) {
+                    // FIXME might throw exception if user inputs characters
+                    int sum = temp + Integer.parseInt(txtInput.getText());
+                    lblSum.setText(sum + "");
+                    temp = 0;
+                } else {
+                    // FIXME might throw exception if user inputs characters
+                    temp = Integer.parseInt(txtInput.getText());
+                    txtInput.setText("0");
+                }
+            }
+        });
 
         // add them to container
         add(lblSumLabel);
@@ -48,6 +64,7 @@ public class SimpleCalculator extends Frame {
                 // FIXME might throw exception if user inputs characters
                 int sum = temp + Integer.parseInt(txtInput.getText());
                 lblSum.setText(sum + "");
+                temp = 0;
             } else {
                 // FIXME might throw exception if user inputs characters
                 temp = Integer.parseInt(txtInput.getText());
@@ -57,6 +74,7 @@ public class SimpleCalculator extends Frame {
     }
 
     public static void main(String[] args) {
+
         new SimpleCalculator();
     }
 }
