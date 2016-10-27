@@ -31,6 +31,7 @@ public class SimpleCalculator extends Frame {
         //btnSum.addActionListener(new MyActionListener());
         // 2. anonymous class:
         btnSum.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (temp != 0) {
