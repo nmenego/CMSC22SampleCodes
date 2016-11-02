@@ -2,6 +2,7 @@ package gui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
@@ -18,10 +19,13 @@ public class MouseTesterFrame extends JFrame {
         setLayout(new FlowLayout());
         JButton btnTest = new JButton("My Button");
         JTextField txtTest = new JTextField("The quick brown fox...");
-        txtTest.addMouseListener(new MyMouseListener(txtTest));
-        btnTest.addMouseListener(new MyMouseListener(txtTest));
+        JTextArea txtAreaTest = new JTextArea(20, 20);
+
+        txtTest.addMouseListener(new MyMouseListener(txtAreaTest));
+        btnTest.addMouseListener(new MyMouseListener(txtAreaTest));
         add(txtTest);
         add(btnTest);
+        add(txtAreaTest);
         setTitle("Mouse Listener Tester");
         setSize(200, 200);
         setVisible(true);
