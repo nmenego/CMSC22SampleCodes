@@ -28,8 +28,9 @@ public class SerializationTester {
             System.out.println(g2);
             System.out.println(g3);
 
-            // serialize...
-            fos = new FileOutputStream(FILE_NAME);
+            // SERIALIZATION...
+            File fout = new File(FILE_NAME);
+            fos = new FileOutputStream(fout);
             oos = new ObjectOutputStream(fos);
 
             oos.writeObject(g1);
@@ -38,9 +39,16 @@ public class SerializationTester {
 
             oos.close();
 
-            // deserialize...
-            fis = new FileInputStream(FILE_NAME);
+            // DESERIALIZATION...
+            File fin = new File(FILE_NAME);
+            if(fin.length() == 0) {
+                // file is emtpy!!
+                System.err.println("FILE IS EMPTY");
+                System.exit(-1);
+            }
+            fis = new FileInputStream(fin);
             ois = new ObjectInputStream(fis);
+
 
             GameCharacter g4 = (GameCharacter) ois.readObject();
             GameCharacter g5 = (GameCharacter) ois.readObject();
