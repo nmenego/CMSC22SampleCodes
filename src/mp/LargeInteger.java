@@ -51,24 +51,24 @@ public class LargeInteger {
         LargeInteger myInt2 = new LargeInteger(new LargeInteger(operand2));
         // To test long constructor
         LargeInteger result = new LargeInteger(0L);
-
-        switch(operator) {
-            case "+":
-                result = myInt1.add(myInt2);
-                break;
-            case "-":
-                result = myInt1.subtract(myInt2);
-                break;
-            case "*":
-                result = myInt1.multiply(myInt2);
-                break;
-            case "/":
-                result = myInt1.divide(myInt2);
-                break;
-            default:
-                // do nothing...
-
-        }
+//
+//        switch(operator) {
+//            case "+":
+//                result = myInt1.add(myInt2);
+//                break;
+//            case "-":
+//                result = myInt1.subtract(myInt2);
+//                break;
+//            case "*":
+//                result = myInt1.multiply(myInt2);
+//                break;
+//            case "/":
+//                result = myInt1.divide(myInt2);
+//                break;
+//            default:
+//                // do nothing...
+//
+//        }
 
         // print out result:
         System.out.println(result); // this line invokes LargeInteger.toString()
