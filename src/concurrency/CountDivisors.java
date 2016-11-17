@@ -1,6 +1,7 @@
 package concurrency;
 
 /**
+ * Count divisors in sequence.
  * Created by nmenego on 11/16/16.
  */
 public class CountDivisors {
