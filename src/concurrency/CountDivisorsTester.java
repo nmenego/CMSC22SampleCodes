@@ -6,12 +6,11 @@ package concurrency;
 public class CountDivisorsTester {
 
     public static final int MIN = 1;
-    public static final int MAX = 20;
-    public static final int THREAD_COUNT = 10;
+    public static final int MAX = 100000;
 
     public static void main(String[] args) throws Exception {
         long startTime = System.currentTimeMillis();
-        CountDivisors countDivisors = new CountDivisors(1, 10000);
+        CountDivisors countDivisors = new CountDivisors(MIN, MAX);
         countDivisors.run();
         // print results
         System.out.println("RESULTS");
